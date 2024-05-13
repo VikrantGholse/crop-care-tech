@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Analysis Dashboard in India - Crop Care Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo-heading-container"> <!-- New container for logo and heading -->
+                    <img src="images/logo.png" alt="Crop Care Tech Logo" height="100" width="100"> <!-- Add logo image -->
+                    <h1>Crop Care Tech</h1> <!-- Move heading inside the new container -->
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="disease_detection.html">Disease Detection of Crops</a></li>
+                    <li><a href="crop_analysis_dashboard.html">Crop Analysis Dashboard in India</a></li>
+                    <li><a href="ecommerce_system.html">E-commerce System for Renting Farming Equipment</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <iframe id="dashboard" width="1300" height="700" frameborder="0"></iframe>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // URL of your Power BI dashboard
+            const dashboardUrl = "https://app.powerbi.com/view?r=eyJrIjoiZGE3OWFhYmItNDg0My00YjQyLTllZGEtNTg3ZWQyOTkwYjA5IiwidCI6ImUxNGU3M2ViLTUyNTEtNDM4OC04ZDY3LThmOWYyZTJkNWE0NiIsImMiOjEwfQ%3D%3D";
+
+            // Set the src attribute of the iframe to the dashboard URL
+            document.getElementById('dashboard').src = dashboardUrl;
+        });
+    </script>
+</body>
+</html>

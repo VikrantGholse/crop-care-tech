@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce System for Renting Farming Equipment - Crop Care Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo-heading-container"> <!-- New container for logo and heading -->
+                    <img src="images/logo.png" alt="Crop Care Tech Logo" height="100" width="100"> <!-- Add logo image -->
+                    <h1>Crop Care Tech</h1> <!-- Move heading inside the new container -->
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="disease_detection.html">Disease Detection of Crops</a></li>
+                    <li><a href="crop_analysis_dashboard.html">Crop Analysis Dashboard in India</a></li>
+                    <li><a href="ecommerce_system.html">E-commerce System for Renting Farming Equipment</a></li>
+                    <li><a href="cart.html">Cart</a></li> <!-- Added Cart link -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>E-commerce System for Renting Farming Equipment</h2>
+            <div class="product">
+                <img src="images/equipment1.jpeg" alt="Farming Equipment 1" width="500" height="600">
+                <h3>CLAAS JAGUAR FORAGE HARVESTERS</h3>
+                <p>Description: The JAGUAR power flow is one of the most effective and efficient designs in the industry today. The chopping mechanism is driven directly from the engine's crankshaft from a long, maintenance-free powerband. In addition, the operator can easily adjust the chop to any desired length from the comfort of the cab while the machine is under full operation, thanks to the Comfort Cut precompression roller drive innovation.</p>
+                <p>Price: $100</p>
+                <label for="duration">Enter number of days:</label>
+                <input type="text" id="duration" name="duration" value="1">
+                <button class="add-to-cart">Add to Cart</button>     
+            </div>
+            <div class="product">
+                <img src="images/equipment2.jpeg" alt="Farming Equipment 2" width="500" height="600">
+                <h3>UTILITY TRACTORS</h3>
+                <p>Description: Whether you run a small family farm or a large agriculture business, you have a wide variety of tasks to complete daily. The best way to get work done quickly and effectively is to use farm equipment to make the process easier and more consistent. Modern utility tractors are designed to help you get the most out of your machinery — rather than requiring an individual machine for every job, a utility tractor can meet a wide variety of demands.</p>
+                <p>Price: $100</p>
+                <label for="duration">Enter number of days:</label>
+                <input type="text" id="duration" name="duration" value="1">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/equipment3.jpeg" alt="Farming Equipment 3" width="500" height="600">
+                <h3>ROGATOR C SERIES SPRAYERS</h3>
+                <p>Description: The Rogator C Series by Challenger is designed to deliver more precise application in less time, with less wear on the machine as well as on the operator. With the industry-exclusive LiquidLogic™ system to the sophisticated AWD SmartDrive™ system to the simple, intuitive AccuTerminal™ operational platform that controls all chassis and machine functions, the Rogator C Series of sprayers sets a new standard in precision application. 
+                </p>
+                <p>Price: $100</p>
+                <label for="duration">Enter number of days:</label>
+                <input type="text" id="duration" name="duration" value="1">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/equipment4.jpeg" alt="Farming Equipment 4" width="500" height="600">
+                <h3>SIDE- & REAR-DISCHARGE TENDERS</h3>
+                <p>Description: Willmar’s truck- or trailer-mounted 16- and 24-ton tenders feature two large capacity hoppers. These feed into one auger and carry nearly any single, dry-material product. These discharge tenders are ideal for commercial fertilizer dealers, custom applicators and large farming operations with their ability to load an applicator or planter at up to two tons per minute. Ladders are conveniently located to provide you access to the hoppers and feature improved sightline of the fill and flow status. Materials move quickly and efficiently thanks to steep 40-degree sloped sides.</p>
+                <p>Price: $100</p>
+                <label for="duration">Enter number of days:</label>
+                <input type="text" id="duration" name="duration" value="1">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/equipment5.jpeg" alt="Farming Equipment 5" width="500" height="600">
+                <h3>LARGE HAY BALERS</h3>
+                <p>Description: Holt Ag Solutions offers you the industry-leading line of large square balers for your baling needs – the 2200 series from Hesston by Massey Ferguson, backed by AGCO. The 2200 series was designed to build upon the highly successful 2100 series from Massey Ferguson, with increased technology for more precise cuts, increased bale density and greater capacity. Ideal for dairy, commercial and biomass operations, we’re sure we have a baler for you.</p>
+                <p>Price: $100</p>
+                <label for="duration">Enter number of days:</label>
+                <input type="text" id="duration" name="duration" value="1">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="images/equipment6.jpeg" alt="Farming Equipment 6" width="500" height="600">
+                <h3>VARIO HIGH HORSEPOWER TRACTOR</h3>
+                <p>Description: When it comes to farming, your tractor is one of the most important tools when you're running a large-scale farming operation. So don't settle for anything less than a Fendt high horsepower tractor. The Fendt 800 S4 Series of tractors are low-weight, high-performance, commanding machines that will take farming to the next level. This high horsepower tractor provides excellent flexibility to maneuver within your operation with ease. These machines are more than powerful in the field and are superior for transport operations.</p>
+                <p>Price: $100</p>
+                <label for="duration">Enter number of days:</label>
+                <input type="text" id="duration" name="duration" value="1">
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Contact us: info@cropcaretech.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const durationInput = document.getElementById('duration');
+            const durationOutput = document.querySelector('output[for="duration"]');
+
+            durationInput.addEventListener('input', function() {
+                durationOutput.textContent = this.value;
+            });
+
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const productName = button.parentNode.querySelector('h3').textContent;
+                    const productPrice = button.parentNode.querySelector('p:nth-child(3)').textContent;
+                    const duration = durationInput.value;
+
+                    // Store product info and duration in localStorage (for demonstration)
+                    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+                    cartItems.push({ name: productName, price: productPrice, duration: duration });
+                    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+                    alert('Item added to cart.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

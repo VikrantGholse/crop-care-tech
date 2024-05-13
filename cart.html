@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Crop Care Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo-heading-container"> <!-- New container for logo and heading -->
+                    <img src="images/logo.png" alt="Crop Care Tech Logo" height="100" width="100"> <!-- Add logo image -->
+                    <h1>Crop Care Tech</h1> <!-- Move heading inside the new container -->
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="disease_detection.html">Disease Detection of Crops</a></li>
+                    <li><a href="crop_analysis_dashboard.html">Crop Analysis Dashboard in India</a></li>
+                    <li><a href="ecommerce_system.html">E-commerce System for Renting Farming Equipment</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2>Cart</h2>
+            <div id="cart-items"></div> <!-- Container for displaying cart items -->
+            <button id="buy-button">Buy</button> <!-- Button to open the form -->
+        </div>
+    </section>
+
+    <!-- Modal form -->
+    <div id="modal" class="modal" >
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="purchase-form">
+                <table>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" id="name" name="name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="address">Address:</label></td>
+                        <td><input type="text" id="address" name="address" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="city">City:</label></td>
+                        <td><input type="text" id="city" name="city" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="state">State:</label></td>
+                        <td><input type="text" id="state" name="state" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pincode">Pincode:</label></td>
+                        <td><input type="text" id="pincode" name="pincode" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="payment">Mode of Payment:</label></td>
+                        <td>
+                            <select id="payment" name="payment" required>
+                                <option value="credit">Credit Card</option>
+                                <option value="debit">Debit Card</option>
+                                <option value="paypal">PayPal</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>Contact us: info@cropcaretech.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.textContent = 'Your cart is empty.';
+            } else {
+                const cartList = document.createElement('div');
+                cartItems.forEach(function(item, index) {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `<div class="item-image">
+                                                <img src="${item.image}" alt="${item.name}">
+                                            </div>
+                                            <div class="item-details">
+                                                <h3>${item.name}</h3>
+                                                <p>Price: ${item.price}</p>
+                                                <p>Duration: ${item.duration} days</p>
+                                                <button class="remove-item" data-index="${index}">Remove</button>
+                                            </div>`;
+                    cartList.appendChild(cartItem);
+                });
+                cartItemsContainer.appendChild(cartList);
+
+                // Add event listeners for removing items
+                const removeButtons = document.querySelectorAll('.remove-item');
+                removeButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                        const indexToRemove = parseInt(button.dataset.index);
+                        cartItems.splice(indexToRemove, 1);
+                        localStorage.setItem('cart', JSON.stringify(cartItems));
+                        updateCartDisplay();
+                    });
+                });
+            }
+
+            const buyButton = document.getElementById('buy-button');
+            buyButton.addEventListener('click', function() {
+                localStorage.removeItem('cart'); // Clear cart after purchase (for demonstration)
+                updateCartDisplay();
+                alert('Kindly Provide us your address and payment detils.');
+            });
+
+            function updateCartDisplay() {
+                cartItemsContainer.innerHTML = '';
+                if (cartItems.length === 0) {
+                    cartItemsContainer.textContent = 'Your cart is empty.';
+                } else {
+                    const cartList = document.createElement('div');
+                    cartItems.forEach(function(item, index) {
+                        const cartItem = document.createElement('div');
+                        cartItem.classList.add('cart-item');
+                        cartItem.innerHTML = `<div class="item-image">
+                                                    <img src="${item.image}" alt="${item.name}">
+                                                </div>
+                                                <div class="item-details">
+                                                    <h3>${item.name}</h3>
+                                                    <p>Price: ${item.price}</p>
+                                                    <p>Duration: ${item.duration} days</p>
+                                                    <button class="remove-item" data-index="${index}">Remove</button>
+                                                </div>`;
+                        cartList.appendChild(cartItem);
+                    });
+                    cartItemsContainer.appendChild(cartList);
+                }
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modal');
+            const buyButton = document.getElementById('buy-button');
+            const closeButton = document.querySelector('.close');
+
+            buyButton.addEventListener('click', function() {
+                modal.style.display = 'block'; // Display the modal form
+            });
+
+            closeButton.addEventListener('click', function() {
+                modal.style.display = 'none'; // Hide the modal form when the close button is clicked
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none'; // Hide the modal form when the user clicks outside it
+                }
+            });
+
+            const purchaseForm = document.getElementById('purchase-form');
+            purchaseForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Collect form data and process it as needed (e.g., send it to a server)
+                // After processing, close the modal form
+                modal.style.display = 'none';
+                alert('Thank you for your purchase!');
+            });
+        });
+    </script>
+</body>
+</html>
