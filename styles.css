@@ -81,6 +81,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    /* display: flex;
+    justify-content: space-between; */
 }
 
 header {
@@ -374,4 +376,10 @@ button {
 iframe {
     width: 1200px; /* Set the width of the iframe */
     height: 650px; /* Set the height of the iframe */
+}
+
+.item{
+    display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns with equal width */
+  grid-gap: 10px; /* spacing between grid items */
 }
