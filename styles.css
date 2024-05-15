@@ -99,12 +99,17 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #fff;
+    color: #c90000;
     text-decoration: none;
+}
+
+header nav ul li:hover{
+    color: #000000;
 }
 .logo-heading-container {
     display: flex;
     align-items: center;
+    font-size: x-large;
 }
 
 .dropdown-menu {
@@ -210,10 +215,11 @@ footer {
     margin: 0;
     padding: 0;
     display: flex;
+    float: right;
 }
 
 .nav-menu li {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .nav-menu li:first-child {
@@ -222,7 +228,13 @@ footer {
 
 .nav-menu li a {
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.nav-menu li a:hover{
+    background-color: #175513;
+    color: #afe5ab;
 }
 
 .content {
@@ -243,7 +255,11 @@ footer {
     transition: background-color 0.3s ease; /* Add transition effect */
     color: #333;
     text-align: center;
+    
 
+}
+a.ser{
+    text-decoration: none;
 }
 .service:hover {
     background-color: #bded8a; /* Change background color on hover */
@@ -286,4 +302,76 @@ footer {
 
 .about-section p {
     margin-bottom: 0;
+}
+
+.leaf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the height of the container to full viewport height */
+    border: 2px solid #333; /* Add border to the container */
+    border-radius: 300px; /* Add border radius for rounded corners */
+    background-image: url("images/l1.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /* Add padding to the container */
+    animation: leaf 25s infinite ease-in-out;
+}
+@keyframes leaf {
+    0%
+    {
+        background-image: url("images/l2.jpg");
+    }
+    20%
+    {
+        background-image: url("images/l3.jpg");
+    }
+    40%
+    {
+        background-image: url("images/l4.jpg");
+    }
+    60%
+    {
+        background-image: url("images/l5.jpg");
+    }
+    80%
+    {
+        background-image: url("images/l1.jpg");
+    }
+    100%
+    {
+        background-image: url("images/l2.jpg");
+    }
+}
+
+form {
+    text-align: center;
+}
+button {
+    background-color: #4CAF50; /* Set background color of the button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px; /* Add some top margin */
+}button:hover {
+    background-color: #45a049; /* Darken the background color on hover */
+}
+#result {
+    margin-top: 20px; /* Add some space between the button and the result */
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the height to full viewport height */
+    background-image: url("images/l5.jpg");
+}
+
+iframe {
+    width: 1200px; /* Set the width of the iframe */
+    height: 700px; /* Set the height of the iframe */
 }

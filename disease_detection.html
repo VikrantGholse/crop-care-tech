@@ -12,23 +12,26 @@
             <div class="container">
                 <div class="logo-heading-container"> <!-- New container for logo and heading -->
                     <img src="images/logo.png" alt="Crop Care Tech Logo" height="100" width="100"> <!-- Add logo image -->
-                    <h1>Crop Care Tech</h1> <!-- Move heading inside the new container -->
+                    <h1>&nbsp;&nbsp;Crop Care Tech</h1> <!-- Move heading inside the new container -->
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="disease_detection.html">Disease Detection of Crops</a></li>
-                    <li><a href="crop_analysis_dashboard.html">Crop Analysis Dashboard in India</a></li>
-                    <li><a href="ecommerce_system.html">E-commerce System for Renting Farming Equipment</a></li>
+                    <li><a href="index.html">&nbsp;Home&nbsp;</a></li>
+                    <li><a href="disease_detection.html"> &nbsp; Disease Detection&nbsp;  </a></li>
+                    <li><a href="crop_analysis_dashboard.html">&nbsp; Crop Analysis Dashboard &nbsp; </a></li>
+                    <li><a href="ecommerce_system.html">&nbsp;E-commerce System for Renting&nbsp;</a></li>
+                    <li><a href="#">&nbsp;About&nbsp;</a></li> 
                 </ul>
             </div>
         </nav>
     </header>
 
     <section>
-        <div class="container">
-            <h2>Disease Detection of Crops</h2>
-            <p>Using advanced technology for early detection of diseases in crops.</p>
-            <!-- Add more content as needed -->
+        <div class="leaf">
+            <form id="upload-form">
+                <input type="file" id="image-input" accept="image/*" required>
+                <button type="submit">Detect Disease</button>
+            </form>
+            <div id="result"></div>
         </div>
     </section>
 
@@ -39,6 +42,32 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script >
+        document.getElementById('detect-button').addEventListener('click', function() {
+            var fileInput = document.getElementById('image-input');
+            var file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select an image file.');
+                return;
+            }
+
+            var formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/detect_disease', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = 'Prediction: ' + data.prediction;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'An error occurred. Please try again later.';
+            });
+        });
+    </script>
 </body>
 </html>

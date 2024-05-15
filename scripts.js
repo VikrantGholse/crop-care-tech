@@ -46,3 +46,34 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById('upload-form');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const fileInput = document.getElementById('image-input');
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert('Please select an image file.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', file);
+
+        try {
+            const response = await fetch('/detect_disease', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+            resultDiv.innerText = data.prediction;
+        } catch (error) {
+            console.error('Error:', error);
+            resultDiv.innerText = 'An error occurred. Please try again later.';
+        }
+    });
+});
